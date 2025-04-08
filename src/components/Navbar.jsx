@@ -86,33 +86,38 @@ const Navbar = () => {
           } md:block mt-4 md:mt-0`}
         >
           <li>
-            <Link to="/" className="hover:text-gray-200 block py-1">
+            <Link to="/" className="hover:text-green-200 block py-1">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/courses" className="hover:text-gray-200 block py-1">
+            <Link to="/courses" className="hover:text-green-200 block py-1">
               Courses
             </Link>
           </li>
           <li>
-            <Link to="/products" className="hover:text-gray-200 block py-1">
+            <Link to="/products" className="hover:text-green-200 block py-1">
               Products
             </Link>
           </li>
           <li>
-            <Link to="/blogs" className="hover:text-gray-200 block py-1">
+            <Link to="/blogs" className="hover:text-green-200 block py-1">
               Blogs
             </Link>
           </li>
           <li>
-            <Link to="/authors" className="hover:text-gray-200 block py-1">
+            <Link to="/authors" className="hover:text-green-200 block py-1">
               Authors
             </Link>
           </li>
           <li>
-            <Link to="/events" className="hover:text-gray-200 block py-1">
+            <Link to="/events" className="hover:text-green-200 block py-1">
               Upcoming Events
+            </Link>
+          </li>
+          <li>
+            <Link to="/calender" className="hover:text-green-200 block py-1">
+              Calender
             </Link>
           </li>
         </ul>

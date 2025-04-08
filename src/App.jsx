@@ -43,6 +43,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import Products from "./pages/Products";
+import Calendar from "./pages/Calender";
 
 const App = () => {
   return (
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/calender" element={<Calendar />} />
       </Routes>
       <Footer />
     </Router>
