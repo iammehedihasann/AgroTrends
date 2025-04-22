@@ -45,15 +45,22 @@ import Courses from "./pages/Courses";
 import Products from "./pages/Products";
 import Calendar from "./pages/Calender";
 
+// import InfoPage from "./pages/InfoPage";
+
+import HomePageNavbar from "./components/HomePageNavbar";
+import Blogs from "./pages/Blogs";
+
 const App = () => {
   return (
     <Router>
+      <HomePageNavbar />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/products" element={<Products />} />
         <Route path="/calender" element={<Calendar />} />
+        <Route path="/blogs" element={<Blogs />} />
       </Routes>
       <Footer />
     </Router>

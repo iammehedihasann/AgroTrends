@@ -8,7 +8,9 @@ import fertilizer from "./Fontend_assets/fertilizer.png";
 import farming from "./Fontend_assets/farming.png";
 import agribuisness from "./Fontend_assets/online_buisness.png";
 import crop from "./Fontend_assets/crop.png";
-import backgroundImage from "./Fontend_assets/backgound.png"; // Adjust this path
+import backgroundImage from "./Fontend_assets/backgound.png"; 
+import mehedi from "./Fontend_assets/mehedi.png";
+
  const assets = { 
     soil_health,
     reading,
@@ -20,6 +22,7 @@ import backgroundImage from "./Fontend_assets/backgound.png"; // Adjust this pat
     agribuisness,
     crop,
     backgroundImage,
+    mehedi
 
     
     
