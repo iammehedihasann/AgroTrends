@@ -1,12 +1,11 @@
-// pages/signup.js
-import { useState } from "react";
+// SignUp.js
+import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../firebase/firebaseConfig";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { auth } from "/firebase/firebaseConfig"; // Update the path as needed
+import { useNavigate, Link } from "react-router-dom";
 
-export default function SignUp() {
-  const router = useRouter();
+const SignUp = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,11 +27,25 @@ export default function SignUp() {
         email,
         password
       );
-      // Update user display name
-      await updateProfile(userCredential.user, { displayName: name });
-      router.push("/signin"); // redirect to Sign In page after successful signup
+      await updateProfile(userCredential.user, {
+        displayName: name,
+      });
+      navigate("/signin");
     } catch (err) {
-      setError(err.message);
+      // Handle Firebase Auth errors gracefully
+      switch (err.code) {
+        case "auth/email-already-in-use":
+          setError("Email already in use.");
+          break;
+        case "auth/invalid-email":
+          setError("Invalid email address.");
+          break;
+        case "auth/weak-password":
+          setError("Password should be at least 6 characters.");
+          break;
+        default:
+          setError("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -103,11 +116,13 @@ export default function SignUp() {
 
         <p className="mt-4 text-center text-gray-700">
           Already have an account?{" "}
-          <Link href="/signin">
-            <a className="text-green-600 underline">Sign In</a>
+          <Link to="/signin" className="text-green-600 underline">
+            Sign In
           </Link>
         </p>
       </div>
     </div>
   );
-}
+};
+
+export default SignUp;

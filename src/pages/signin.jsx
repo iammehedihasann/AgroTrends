@@ -1,10 +1,10 @@
 // SignIn.js
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase/firebaseConfig"; // Update path as needed
+import { auth } from "/firebase/firebaseConfig"; // Update path as needed
 import { useNavigate, Link } from "react-router-dom";
 
-function SignIn() {
+const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -70,6 +70,6 @@ function SignIn() {
       </div>
     </div>
   );
-}
+};
 
 export default SignIn;

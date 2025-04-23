@@ -25,6 +25,11 @@ const HomePageNavbar = () => {
             Q & A
           </Link>
         </li>
+        <Link to="/signin">
+          <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-950">
+            Sign In
+          </button>
+        </Link>
       </ul>
     </nav>
   );

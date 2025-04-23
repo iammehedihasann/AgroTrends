@@ -198,6 +198,7 @@ const Navbar = () => {
               Home
             </Link>
           </li>
+
           <li>
             <Link to="/courses" className="block py-1 hover:text-gray-200">
               Courses

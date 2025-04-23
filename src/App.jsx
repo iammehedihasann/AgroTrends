@@ -37,6 +37,7 @@
 // export default App;
 
 import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -44,8 +45,11 @@ import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import Products from "./pages/Products";
 import Calendar from "./pages/Calender";
+import Authors from "./pages/Authors";
 
-// import InfoPage from "./pages/InfoPage";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import HomePageNavbar from "./components/HomePageNavbar";
 import Blogs from "./pages/Blogs";
@@ -56,11 +60,26 @@ const App = () => {
       <HomePageNavbar />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* Auth Routes */}
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+
+        {/* Protected Routes */}
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        {/* Public Routes */}
         <Route path="/courses" element={<Courses />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/calender" element={<Calendar />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/authors" element={<Authors />} />
       </Routes>
       <Footer />
     </Router>

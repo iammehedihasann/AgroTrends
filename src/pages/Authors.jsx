@@ -1,12 +1,31 @@
 import React from "react";
+import AuthorCard from "../components/card/AuthorCard";
+import assets from "../assets/assets";
 
 function Authors() {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere earum
-      dolor eius adipisci quam aperiam rem quidem veniam enim praesentium beatae
-      distinctio, voluptates qui recusandae mollitia atque voluptatem sit natus.
-    </div>
+    <>
+      <h2 className="text-xl font-semibold mb-3 mt-12 pt-6 border-t-2  flex  justify-center items-center ">
+        Author
+      </h2>
+      <div className=" flex ">
+        <AuthorCard
+          image={assets.mehedi}
+          name="Mehedi Hasan"
+          bio="This is mehedi Hasan a software engineer . He is a passionate developer who loves to write about technology and programming."
+        />
+        <AuthorCard
+          image={assets.mehedi}
+          name="Mehedi Hasan"
+          bio="This is mehedi Hasan a software engineer . He is a passionate developer who loves to write about technology and programming."
+        />
+        <AuthorCard
+          image={assets.mehedi}
+          name="Mehedi Hasan"
+          bio="This is mehedi Hasan a software engineer . He is a passionate developer who loves to write about technology and programming."
+        />
+      </div>
+    </>
   );
 }
 
