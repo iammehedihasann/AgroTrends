@@ -1,11 +1,11 @@
-// SignIn.js
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "/firebase/firebaseConfig"; // Update path as needed
+import { auth } from "/firebase/firebaseConfig"; // ✅ Adjust path as needed
 import { useNavigate, Link } from "react-router-dom";
 
 const SignIn = () => {
   const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -14,9 +14,9 @@ const SignIn = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/"); // Redirect to home on success
+      navigate("/"); // ✅ Redirect to home on successful login
     } catch (err) {
-      setError("Invalid email or password");
+      setError(err.message); // ✅ Show actual Firebase error
     }
   };
 
@@ -32,8 +32,11 @@ const SignIn = () => {
 
         <form onSubmit={handleSignIn}>
           <div className="mb-4">
-            <label>Email</label>
+            <label htmlFor="email" className="block mb-1 font-medium">
+              Email
+            </label>
             <input
+              id="email"
               type="email"
               className="w-full border border-gray-300 p-2 rounded"
               value={email}
@@ -43,8 +46,11 @@ const SignIn = () => {
           </div>
 
           <div className="mb-6">
-            <label>Password</label>
+            <label htmlFor="password" className="block mb-1 font-medium">
+              Password
+            </label>
             <input
+              id="password"
               type="password"
               className="w-full border border-gray-300 p-2 rounded"
               value={password}

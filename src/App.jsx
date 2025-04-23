@@ -47,8 +47,8 @@ import Products from "./pages/Products";
 import Calendar from "./pages/Calender";
 import Authors from "./pages/Authors";
 
-import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import SignIn from "/src/pages/SignIn";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import HomePageNavbar from "./components/HomePageNavbar";
@@ -73,8 +73,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
+
         {/* Public Routes */}
         <Route path="/courses" element={<Courses />} />
         <Route path="/products" element={<Products />} />
