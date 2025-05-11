@@ -10,7 +10,19 @@ import agribuisness from "./Fontend_assets/online_buisness.png";
 import crop from "./Fontend_assets/crop.png";
 import backgroundImage from "./Fontend_assets/backgound.png"; 
 import mehedi from "./Fontend_assets/mehedi.png";
+import nayyem from "./Fontend_assets/nayyem.png";
+import lamiya from "./Fontend_assets/lamiya.png";
 
+
+
+import SignupImage from "./Fontend_assets/SignupImage.png";
+import organic_fertilizer from "./Fontend_assets/organic_fertilizer.png";
+import Courses_01 from "./Fontend_assets/Courses_01.png";
+import hybrid_seeds from "./Fontend_assets/hybrid_seeds.png";
+
+import upcoming_events from "./Fontend_assets/upcoming_event.png";
+
+// import login_page_image from "./Fontend_assets/login_page_image.png";
  const assets = { 
     soil_health,
     reading,
@@ -22,8 +34,15 @@ import mehedi from "./Fontend_assets/mehedi.png";
     agribuisness,
     crop,
     backgroundImage,
-    mehedi
-
+    mehedi,
+    SignupImage,
+    organic_fertilizer,
+    hybrid_seeds,
+    nayyem,
+    lamiya,
+    upcoming_events,
+    Courses_01
+    // login_page_image
     
     
 }

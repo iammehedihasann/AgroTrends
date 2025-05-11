@@ -1,64 +1,33 @@
-// // src/App.js
-// import React from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Navbar from "./components/Navbar";
-// import Footer from "./components/Footer";
-// import Home from "./pages/Home";
-// import Courses from "./pages/Courses";
-// import Products from "./components/ProductSection";
-// import Blogs from "./pages/Blogs";
-// import Authors from "./pages/Authors";
-// import Events from "./pages/Events";
-// import Banner from "./components/Banner";
-
-// function App() {
-//   return (
-//     <Router>
-//       <Navbar /> {/* Navbar will always be shown */}
-//       <div className="min-h-screen">
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/courses" element={<Courses />} />
-//           <Route path="/blogs" element={<Blogs />} />
-//           <Route path="/products" element={<Products />} />
-//           <Route path="/authors" element={<Authors />} />
-//           <Route path="/events" element={<Events />} />
-//           <Route path="/banner" element={<Banner />} />
-//           {/* Example route for category */}
-//           {/* Add more routes as needed */}
-//           {/* Example: <Route path='/category' element={<Category />} /> */}
-//         </Routes>
-//       </div>
-//       <Footer /> {/* Footer will always be shown */}
-//     </Router>
-//   );
-// }
-
-// export default App;
-
 import React from "react";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/shared/Navbar";
+import Footer from "./components/shared/Footer";
+import ProtectedRoute from "./components/shared/ProtectedRoute";
+// import ProductCard from "./components/card/ProductCard";
+
+//pages
 import Home from "./pages/Home";
-import Courses from "./pages/Courses";
-import Products from "./pages/Products";
-import Calendar from "./pages/Calender";
-import Authors from "./pages/Authors";
-
-import SignUp from "./pages/SignUp";
+// import Courses from "./pages/Courses";
+import CoursesPage from "./pages/CoursesPage";
+import SingleCoursePage from "./pages/SingleCoursePage";
+import About from "./pages/About";
+import Faqs from "./pages/Faqs";
+import SignUp from "/src/pages/SignUP";
 import SignIn from "/src/pages/SignIn";
-import ProtectedRoute from "./components/ProtectedRoute";
-
-import HomePageNavbar from "./components/HomePageNavbar";
-import Blogs from "./pages/Blogs";
+import MainHome from "./pages/MainHome";
+import Events from "./pages/Events";
+import BlogSection from "./components/sections/BlogSection";
+import BlogDetails from "./pages/BlogDetails";
+import AuthorsPage from "./pages/AuthorsPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
+import ProductsPage from "./pages/ProductsPage";
+import AuthorBlogs from "./pages/AuthorBlogs";
 
 const App = () => {
   return (
     <Router>
-      <HomePageNavbar />
       <Navbar />
+
       <Routes>
         {/* Auth Routes */}
         <Route path="/signin" element={<SignIn />} />
@@ -73,12 +42,19 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/" element={<MainHome />} />
 
-        {/* Public Routes */}
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/authors" element={<Authors />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/q&a" element={<Faqs />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/blogs" element={<BlogSection />} />
+        <Route path="/blogs/:id" element={<BlogDetails />} />
+        <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/courses/:id" element={<SingleCoursePage />} />
+        <Route path="/products/:id" element={<ProductDetailsPage />} />
+        <Route path="/authors" element={<AuthorsPage />} />
+        <Route path="/blogs/author/:id" element={<AuthorBlogs />} />
       </Routes>
       <Footer />
     </Router>
