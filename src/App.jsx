@@ -29,32 +29,59 @@ const App = () => {
       <Navbar />
 
       <Routes>
-        {/* Auth Routes */}
+        {/* Public Routes */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<MainHome />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/q&a" element={<Faqs />} />
+        <Route path="/blogs" element={<BlogSection />} />
+        <Route path="/blogs/:id" element={<BlogDetails />} />
+        <Route path="/blogs/author/:id" element={<AuthorBlogs />} />
+        <Route path="/authors" element={<AuthorsPage />} />
 
         {/* Protected Routes */}
         <Route
-          path="/"
+          path="/dashboard"
           element={
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>
           }
         />
-        <Route path="/" element={<MainHome />} />
-
-        <Route path="/about" element={<About />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/q&a" element={<Faqs />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/blogs" element={<BlogSection />} />
-        <Route path="/blogs/:id" element={<BlogDetails />} />
-        <Route path="/courses" element={<CoursesPage />} />
-        <Route path="/courses/:id" element={<SingleCoursePage />} />
-        <Route path="/products/:id" element={<ProductDetailsPage />} />
-        <Route path="/authors" element={<AuthorsPage />} />
-        <Route path="/blogs/author/:id" element={<AuthorBlogs />} />
+        <Route
+          path="/products"
+          element={
+            <ProtectedRoute>
+              <ProductsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/products/:id"
+          element={
+            <ProtectedRoute>
+              <ProductDetailsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/courses"
+          element={
+            <ProtectedRoute>
+              <CoursesPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/courses/:id"
+          element={
+            <ProtectedRoute>
+              <SingleCoursePage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <Footer />
     </Router>

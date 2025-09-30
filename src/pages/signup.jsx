@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "/firebase/firebaseConfig";
 import { useNavigate, Link } from "react-router-dom";
-// import assets from "../assets/assets";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -15,37 +12,11 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError("");
-
     if (password !== confirm) {
       setError("Passwords do not match");
       return;
     }
-
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      await updateProfile(userCredential.user, {
-        displayName: name,
-      });
-      navigate("/signin");
-    } catch (err) {
-      switch (err.code) {
-        case "auth/email-already-in-use":
-          setError("Email already in use.");
-          break;
-        case "auth/invalid-email":
-          setError("Invalid email address.");
-          break;
-        case "auth/weak-password":
-          setError("Password should be at least 6 characters.");
-          break;
-        default:
-          setError("Something went wrong. Please try again.");
-      }
-    }
+    navigate("/signin"); // Dummy sign up
   };
 
   return (
@@ -113,25 +84,23 @@ const SignUp = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
-                placeholder="••••••••"
                 required
               />
             </div>
 
             <div>
               <label
-                htmlFor="confirm-password"
+                htmlFor="confirm"
                 className="block text-sm font-medium text-gray-700"
               >
                 Confirm Password
               </label>
               <input
                 type="password"
-                id="confirm-password"
+                id="confirm"
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
-                placeholder="••••••••"
                 required
               />
             </div>
@@ -173,7 +142,7 @@ const SignUp = () => {
                 to="/signin"
                 className="font-medium text-green-600 hover:text-green-500"
               >
-                Log in
+                Sign In
               </Link>
             </p>
           </div>

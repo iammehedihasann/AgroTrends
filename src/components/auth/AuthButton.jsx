@@ -28,7 +28,7 @@ const AuthButton = () => {
             className="flex items-center space-x-1 text-gray-700 hover:text-green-600"
           >
             <span className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700">
-              {user.displayName?.charAt(0) || user.email?.charAt(0)}
+              {user?.displayName?.charAt(0) || user?.email?.charAt(0) || "U"}
             </span>
           </button>
           {showProfile && <ProfileDropdown user={user} onLogout={logout} />}
